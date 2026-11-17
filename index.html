@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATELIER — Dining Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo">Atelier</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li><li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li><li><a href="#contact">Reservation</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Reservasi</a>
+    <button class="burger" id="burger" aria-label="Buka menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1600&q=80&auto=format&fit=crop" alt="Suasana ATELIER" fetchpriority="high"></div>
+  <div class="hero-content">
+    <span class="kicker">Est. 2019 — Jakarta</span>
+    <h1>Rasa yang<br><em>Tak Terburu-buru</em></h1>
+    <p>Sebuah ruang di mana bahan lokal, teknik presisi, dan waktu bertemu. Setiap hidangan adalah komposisi — bukan sekadar makanan.</p>
+    <div class="hero-actions"><a href="#contact" class="btn btn-solid">Reservasi Meja</a><a href="#menu" class="btn btn-ghost">Lihat Menu</a></div>
+  </div>
+  <div class="scroll-hint">Gulir</div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-media reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format&fit=crop" alt="Chef ATELIER" loading="lazy"></div>
+    <div class="about-text reveal d1">
+      <span class="kicker">Tentang Kami</span><h2 class="section-title">Dapur sebagai atelier</h2>
+      <p>ATELIER lahir dari satu keyakinan sederhana: memasak adalah kerja seni. Kami tidak mengejar tren, kami mengejar keseimbangan — antara panas dan dingin, tekstur dan keheningan, tradisi dan keberanian.</p>
+      <p>Setiap menu disusun dari bahan yang dipanen dalam radius yang bisa kami jangkau, diolah dengan teknik yang kami pelajari bertahun-tahun, lalu disajikan tanpa tergesa.</p>
+      <div class="about-stats"><div class="stat"><b>12</b><span>Seats per service</span></div><div class="stat"><b>7</b><span>Course tasting</span></div><div class="stat"><b>2019</b><span>Sejak</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head reveal"><span class="kicker">Signature</span><h2 class="section-title">Hidangan Andalan</h2><p>Empat komposisi yang paling sering diminta. Berganti mengikuti musim, tapi tidak pernah kehilangan karakternya.</p></div>
+    <div class="filter-bar reveal d1">
+      <button class="filter-btn active" data-filter="all">Semua</button><button class="filter-btn" data-filter="grill">Grill</button>
+      <button class="filter-btn" data-filter="sea">Sea</button><button class="filter-btn" data-filter="pasta">Pasta</button><button class="filter-btn" data-filter="dessert">Dessert</button>
+    </div>
+    <div class="menu-grid">
+      <article class="dish reveal" data-category="grill"><div class="dish-img"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=800&q=80&auto=format&fit=crop" alt="Dry-aged ribeye" loading="lazy"></div><div class="dish-body"><span class="dish-tag">Main — Grill</span><h3>Dry-Aged Ribeye</h3><p>Diaging 28 hari, dibakar di atas arang binchotan, disajikan dengan purée kentang truffle dan jus réductions.</p><div class="dish-price">Rp 480.000</div></div></article>
+      <article class="dish reveal d1" data-category="sea"><div class="dish-img"><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80&auto=format&fit=crop" alt="Salmon confit" loading="lazy"></div><div class="dish-body"><span class="dish-tag">Main — Sea</span><h3>Salmon Confit</h3><p>Salmon Norwegia dimasak perlahan dalam minyak zaitun, saus beurre blanc, dan caviar lokal.</p><div class="dish-price">Rp 395.000</div></div></article>
+      <article class="dish reveal d2" data-category="pasta"><div class="dish-img"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=80&auto=format&fit=crop" alt="Handmade tagliatelle" loading="lazy"></div><div class="dish-body"><span class="dish-tag">Pasta — Handmade</span><h3>Tagliatelle Tartufo</h3><p>Pasta telur buatan tangan, mentega browned, parmigiano reggiano 36 bulan, dan irisan truffle hitam.</p><div class="dish-price">Rp 320.000</div></div></article>
+      <article class="dish reveal d3" data-category="dessert"><div class="dish-img"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80&auto=format&fit=crop" alt="Dessert cokelat" loading="lazy"></div><div class="dish-body"><span class="dish-tag">Dessert</span><h3>Valrhona Noir</h3><p>Ganache cokelat 70%, garam laut, crumble kakao, dan es krim vanilla bean Madagaskar.</p><div class="dish-price">Rp 165.000</div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="exp-bg"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80&auto=format&fit=crop" alt="Interior ATELIER" loading="lazy"></div>
+  <div class="wrap"><div class="exp-content reveal"><span class="kicker">The Experience</span><h2 class="section-title">Duduk. Tarik napas. Nikmati.</h2><p>Dua belas kursi, satu dapur terbuka, dan cahaya temaram yang dibuat untuk percakapan panjang. Kami tidak mempercepat apa pun — termasuk malam Anda.</p></div></div>
+</section>
+
+<section class="testimonials">
+  <div class="wrap"><span class="kicker reveal">Ulasan</span><h2 class="section-title reveal">Apa Kata Mereka</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal d1"><p>"Pengalaman bersantap yang luar biasa. Dry-Aged Ribeye-nya meleleh di mulut. Pelayanannya sangat personal."</p><div class="testi-author">— Budi Santoso</div></div>
+      <div class="testi-card reveal d2"><p>"Suasana yang sempurna untuk anniversary. Pencahayaan temaram dan musiknya bikin betah berlama-lama."</p><div class="testi-author">— Sarah Wijaya</div></div>
+      <div class="testi-card reveal d3"><p>"Tagliatelle Tartufo-nya juara. Ini tempat fine dining terbaik di Jakarta yang pernah saya coba."</p><div class="testi-author">— Andi Pratama</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal"><span class="kicker">Reservasi</span><h2 class="section-title" style="margin-bottom:2rem;">Amankan Kursi Anda</h2>
+      <form class="reserve-form" id="reserveForm">
+        <div class="form-group"><label for="nama">Nama Lengkap</label><input type="text" id="nama" required placeholder="Masukkan nama Anda"></div>
+        <div class="form-row"><div class="form-group"><label for="tanggal">Tanggal</label><input type="date" id="tanggal" required></div><div class="form-group"><label for="jam">Jam</label><input type="time" id="jam" required></div></div>
+        <div class="form-group"><label for="jumlah">Jumlah Orang</label><select id="jumlah"><option value="1">1 Orang</option><option value="2">2 Orang</option><option value="3">3 Orang</option><option value="4">4 Orang</option><option value="5+">5+ Orang</option></select></div>
+        <div class="form-group"><label for="catatan">Catatan Tambahan</label><textarea id="catatan" rows="3" placeholder="Alergi, permintaan khusus, dll."></textarea></div>
+        <button type="submit" class="btn btn-solid" style="width:100%;">Kirim ke WhatsApp</button>
+      </form>
+    </div>
+    <div class="reveal d1"><div class="info-box"><h4>Lokasi</h4><p>Jl. Senopati Raya No. 42<br>Kebayoran Baru, Jakarta Selatan 12190</p><h4>Jam Operasional</h4><p>Selasa – Minggu<br>18.00 – 22.00 WIB<br>(Senin Tutup)</p><h4>Kontak</h4><p>+62 21 5550 123<br>hello@atelier.id</p></div>
+      <div class="map-container"><iframe title="Peta lokasi ATELIER" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1215684224566!2d106.80461031476967!3d-6.242784995476724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f100e1e5a6c7%3A0x6e6e6e6e6e6e6e6e!2sSenopati!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="wrap"><div class="footer-grid">
+  <div><div class="logo">Atelier</div><p>Jl. Senopati Raya No. 42<br>Kebayoran Baru, Jakarta Selatan 12190</p></div>
+  <div><h4>Kontak</h4><ul><li><a href="tel:+62215550123">+62 21 5550 123</a></li><li><a href="mailto:hello@atelier.id">hello@atelier.id</a></li></ul></div>
+  <div><h4>Sosial</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li></ul></div>
+</div><div class="footer-bottom"><span>© 2026 ATELIER</span><span>Jakarta, Indonesia</span></div></div></footer>
+
+<a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="floating-wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.031 2C6.502 2 2 6.502 2 12.031c0 1.906.534 3.69 1.464 5.222L2 22l4.874-1.276A9.986 9.986 0 0 0 12.031 22c5.529 0 10.031-4.502 10.031-10.031C22.062 6.502 17.56 2 12.031 2zm5.523 14.378c-.232.654-1.348 1.258-1.882 1.302-.514.044-1.006.256-2.93-.582-2.316-.996-3.788-3.37-3.906-3.526-.118-.156-.936-1.25-.936-2.386 0-1.136.592-1.692.802-1.928.21-.236.456-.294.608-.294.152 0 .304.002.436.008.14.006.328-.052.514.394.188.454.646 1.58.702 1.694.056.114.094.248.018.4-.076.152-.114.248-.228.382-.114.134-.24.3-.342.402-.114.114-.234.238-.1.468.134.23.594.98 1.27 1.588.87.776 1.598 1.02 1.828 1.134.23.114.364.096.498-.058.134-.152.58-.678.734-.91.154-.232.308-.194.52-.116.212.078 1.336.63 1.564.744.228.114.38.17.436.266.056.096.056.556-.176 1.21z"/></svg>
+</a>
+<div class="lightbox" id="lightbox"><span class="lightbox-close" id="lightboxClose">&times;</span><img src="" id="lightboxImg" alt="Zoomed"></div>
+<script src="script.js"></script>
+</body>
+</html>
