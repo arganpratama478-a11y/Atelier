@@ -69,12 +69,18 @@ h1,h2,h3{font-family:var(--s);font-weight:300;line-height:1.1}
 .dish h3{font-size:1.45rem;margin-bottom:.55rem}
 .dish p{font-size:.84rem;color:var(--m);flex:1;line-height:1.65}
 .dish-price{margin-top:1.2rem;font-family:var(--s);font-size:1.15rem}
-.experience{position:relative;padding:clamp(6rem,14vw,11rem) 0;color:#fff;text-align:center;overflow:hidden}
-.exp-bg{position:absolute;inset:0;z-index:-2}
-.exp-bg img{width:100%;height:100%;object-fit:cover}
-.experience::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(11,11,11,.74)}
-.exp-content{max-width:680px;margin-inline:auto}
-.exp-content p{color:rgba(255,255,255,.72);font-size:.98rem;margin:1.4rem 0 2.8rem}
+
+/* FULLSCREEN SHOWCASE SCROLL */
+.showcase{position:relative;background:var(--i)}
+.showcase-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.showcase-slide{position:absolute;inset:0;opacity:0;transition:opacity .5s ease;display:flex;align-items:center;justify-content:center}
+.showcase-slide.active{opacity:1}
+.showcase-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(.6)}
+.showcase-caption{position:absolute;bottom:15vh;left:0;width:100%;text-align:center;color:#fff;transform:translateY(20px);transition:transform .5s ease}
+.showcase-slide.active .showcase-caption{transform:translateY(0)}
+.showcase-caption h3{font-family:var(--s);font-size:clamp(2rem,5vw,3.5rem);font-weight:300;margin-bottom:.5rem}
+.showcase-caption p{font-size:.9rem;letter-spacing:.1em;color:rgba(255,255,255,.7)}
+
 .testimonials{padding:5rem 0;background:var(--p);text-align:center}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:3rem;text-align:left}
 .testi-card{padding:2rem;background:var(--c);border-left:2px solid var(--g)}
@@ -157,16 +163,32 @@ h1,h2,h3{font-family:var(--s);font-weight:300;line-height:1.1}
   </div>
 </section>
 
-<!-- GALERI SUASANA (Swipable di HP) -->
-<div style="background: var(--c); padding: 4rem 0;">
-  <div class="wrap" style="padding: 0; margin: 0; width: 100%;">
-    <div style="display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 5vw;">
-      <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&q=80&auto=format&fit=crop" alt="Bar ATELIER" loading="lazy" style="width: 85vw; max-width: 350px; flex-shrink: 0; aspect-ratio: 4/3; object-fit: cover; scroll-snap-align: center; border-radius: 4px;">
-      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80&auto=format&fit=crop" alt="Meja ATELIER" loading="lazy" style="width: 85vw; max-width: 350px; flex-shrink: 0; aspect-ratio: 4/3; object-fit: cover; scroll-snap-align: center; border-radius: 4px;">
-      <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80&auto=format&fit=crop" alt="Plating" loading="lazy" style="width: 85vw; max-width: 350px; flex-shrink: 0; aspect-ratio: 4/3; object-fit: cover; scroll-snap-align: center; border-radius: 4px;">
+<!-- FULLSCREEN SHOWCASE -->
+<section class="showcase" id="showcase">
+  <div class="showcase-sticky">
+    <div class="showcase-slide active">
+      <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600&q=80&auto=format&fit=crop" alt="Bar ATELIER" loading="lazy">
+      <div class="showcase-caption">
+        <h3>The Bar</h3>
+        <p>Koleksi minuman dan alkohol pilihan.</p>
+      </div>
+    </div>
+    <div class="showcase-slide">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=80&auto=format&fit=crop" alt="Meja ATELIER" loading="lazy">
+      <div class="showcase-caption">
+        <h3>The Dining Area</h3>
+        <p>Suasana temaram untuk percakapan panjang.</p>
+      </div>
+    </div>
+    <div class="showcase-slide">
+      <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1600&q=80&auto=format&fit=crop" alt="Plating" loading="lazy">
+      <div class="showcase-caption">
+        <h3>The Plating</h3>
+        <p>Setiap detail disusun dengan presisi.</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <section class="menu" id="menu">
   <div class="wrap">
@@ -192,17 +214,6 @@ h1,h2,h3{font-family:var(--s);font-weight:300;line-height:1.1}
         <div class="dish-img"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80&auto=format&fit=crop" alt="Dessert"></div>
         <div class="dish-body"><span class="dish-tag">Dessert</span><h3>Valrhona Noir</h3><p>Ganache cokelat 70%, garam laut, crumble kakao, dan es krim vanilla bean Madagaskar.</p><div class="dish-price">Rp 165.000</div></div>
       </article>
-    </div>
-  </div>
-</section>
-
-<section class="experience" id="experience">
-  <div class="exp-bg"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80&auto=format&fit=crop" alt="Interior"></div>
-  <div class="wrap">
-    <div class="exp-content reveal">
-      <span class="kicker">The Experience</span>
-      <h2 class="section-title">Duduk. Tarik napas. Nikmati.</h2>
-      <p>Dua belas kursi, satu dapur terbuka, dan cahaya temaram yang dibuat untuk percakapan panjang. Kami tidak mempercepat apa pun — termasuk malam Anda.</p>
     </div>
   </div>
 </section>
@@ -276,18 +287,21 @@ h1,h2,h3{font-family:var(--s);font-weight:300;line-height:1.1}
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
+  // Navbar Logic
   var nav=document.getElementById('nav'), burger=document.getElementById('burger'), navLinks=document.getElementById('navLinks'), ticking=false;
   window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){nav.classList.toggle('scrolled',window.scrollY>40);ticking=false;});ticking=true;}},{passive:true});
   function closeMenu(){burger.classList.remove('open');navLinks.classList.remove('open');document.body.classList.remove('locked');}
   burger.addEventListener('click',function(){var open=!navLinks.classList.contains('open');burger.classList.toggle('open',open);navLinks.classList.toggle('open',open);document.body.classList.toggle('locked',open);});
   navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
   
+  // Reveal Animation Logic
   var reveals=document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.1});
     reveals.forEach(function(el){io.observe(el);});
   }else{reveals.forEach(function(el){el.classList.add('in');});}
   
+  // Lightbox Logic
   var lightbox=document.getElementById('lightbox'), lightboxImg=document.getElementById('lightboxImg'), closeBtn=document.getElementById('lightboxClose');
   document.querySelectorAll('.dish-img img').forEach(function(img){
     img.addEventListener('click',function(){lightboxImg.src=this.src;lightbox.classList.add('active');});
@@ -295,17 +309,44 @@ document.addEventListener('DOMContentLoaded', function(){
   closeBtn.addEventListener('click',function(){lightbox.classList.remove('active');});
   lightbox.addEventListener('click',function(e){if(e.target===lightbox)lightbox.classList.remove('active');});
   
+  // WhatsApp Form Logic
   var form=document.getElementById('reserveForm');
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var nama=document.getElementById('nama').value, tanggal=document.getElementById('tanggal').value, jam=document.getElementById('jam').value, jumlah=document.getElementById('jumlah').value, catatan=document.getElementById('catatan').value;
-    var waNumber='6281234567890';
+    var waNumber='6281234567890'; // GANTI NOMOR INI BANGSAT
     var text='Halo ATELIER, saya ingin reservasi meja.%0A%0A*Nama:*%20'+encodeURIComponent(nama)+'%0A*Tanggal:*%20'+tanggal+'%0A*Jam:*%20'+jam+'%0A*Jumlah:*%20'+jumlah+'%0A*Catatan:*%20'+encodeURIComponent(catatan);
     window.open('https://wa.me/'+waNumber+'?text='+text,'_blank');
   });
   
+  // Set Minimum Date
   var today=new Date().toISOString().split('T')[0];
   document.getElementById('tanggal').setAttribute('min',today);
+
+  // Fullscreen Showcase Scroll Logic
+  var showcaseSection = document.getElementById('showcase');
+  var slides = document.querySelectorAll('.showcase-slide');
+
+  if (showcaseSection) {
+    showcaseSection.style.height = (slides.length * 100) + 'vh';
+
+    window.addEventListener('scroll', function() {
+      var rect = showcaseSection.getBoundingClientRect();
+      var offset = -rect.top;
+      var totalHeight = showcaseSection.offsetHeight - window.innerHeight;
+      
+      if(totalHeight > 0) {
+        var progress = offset / totalHeight;
+        progress = Math.max(0, Math.min(1, progress));
+        var activeIndex = Math.floor(progress * slides.length);
+        if (activeIndex >= slides.length) activeIndex = slides.length - 1;
+
+        slides.forEach(function(slide, index) {
+          slide.classList.toggle('active', index === activeIndex);
+        });
+      }
+    });
+  }
 });
 </script>
 </body>
