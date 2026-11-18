@@ -70,6 +70,13 @@ h1,h2,h3{font-family:var(--s);font-weight:300;line-height:1.1}
 .dish p{font-size:.84rem;color:var(--m);flex:1;line-height:1.65}
 .dish-price{margin-top:1.2rem;font-family:var(--s);font-size:1.15rem}
 
+.experience{position:relative;padding:clamp(6rem,14vw,11rem) 0;color:#fff;text-align:center;overflow:hidden}
+.exp-bg{position:absolute;inset:0;z-index:-2}
+.exp-bg img{width:100%;height:100%;object-fit:cover}
+.experience::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(11,11,11,.74)}
+.exp-content{max-width:680px;margin-inline:auto}
+.exp-content p{color:rgba(255,255,255,.72);font-size:.98rem;margin:1.4rem 0 2.8rem}
+
 /* FULLSCREEN SHOWCASE SCROLL */
 .showcase{position:relative;background:var(--i)}
 .showcase-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
@@ -163,7 +170,18 @@ h1,h2,h3{font-family:var(--s);font-weight:300;line-height:1.1}
   </div>
 </section>
 
-<!-- FULLSCREEN SHOWCASE -->
+<section class="experience" id="experience">
+  <div class="exp-bg"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80&auto=format&fit=crop" alt="Interior"></div>
+  <div class="wrap">
+    <div class="exp-content reveal">
+      <span class="kicker">The Experience</span>
+      <h2 class="section-title">Duduk. Tarik napas. Nikmati.</h2>
+      <p>Dua belas kursi, satu dapur terbuka, dan cahaya temaram yang dibuat untuk percakapan panjang. Kami tidak mempercepat apa pun — termasuk malam Anda.</p>
+      <a href="#contact" class="btn btn-ghost">Pesan Meja Anda</a>
+    </div>
+  </div>
+</section>
+
 <section class="showcase" id="showcase">
   <div class="showcase-sticky">
     <div class="showcase-slide active">
@@ -287,21 +305,21 @@ h1,h2,h3{font-family:var(--s);font-weight:300;line-height:1.1}
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-  // Navbar Logic
+  // Navbar
   var nav=document.getElementById('nav'), burger=document.getElementById('burger'), navLinks=document.getElementById('navLinks'), ticking=false;
   window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){nav.classList.toggle('scrolled',window.scrollY>40);ticking=false;});ticking=true;}},{passive:true});
   function closeMenu(){burger.classList.remove('open');navLinks.classList.remove('open');document.body.classList.remove('locked');}
   burger.addEventListener('click',function(){var open=!navLinks.classList.contains('open');burger.classList.toggle('open',open);navLinks.classList.toggle('open',open);document.body.classList.toggle('locked',open);});
   navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
   
-  // Reveal Animation Logic
+  // Reveal
   var reveals=document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.1});
     reveals.forEach(function(el){io.observe(el);});
   }else{reveals.forEach(function(el){el.classList.add('in');});}
   
-  // Lightbox Logic
+  // Lightbox
   var lightbox=document.getElementById('lightbox'), lightboxImg=document.getElementById('lightboxImg'), closeBtn=document.getElementById('lightboxClose');
   document.querySelectorAll('.dish-img img').forEach(function(img){
     img.addEventListener('click',function(){lightboxImg.src=this.src;lightbox.classList.add('active');});
@@ -309,21 +327,21 @@ document.addEventListener('DOMContentLoaded', function(){
   closeBtn.addEventListener('click',function(){lightbox.classList.remove('active');});
   lightbox.addEventListener('click',function(e){if(e.target===lightbox)lightbox.classList.remove('active');});
   
-  // WhatsApp Form Logic
+  // Form WA
   var form=document.getElementById('reserveForm');
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var nama=document.getElementById('nama').value, tanggal=document.getElementById('tanggal').value, jam=document.getElementById('jam').value, jumlah=document.getElementById('jumlah').value, catatan=document.getElementById('catatan').value;
-    var waNumber='6281234567890'; // GANTI NOMOR INI BANGSAT
+    var waNumber='6281234567890'; // GANTI NOMOR INI
     var text='Halo ATELIER, saya ingin reservasi meja.%0A%0A*Nama:*%20'+encodeURIComponent(nama)+'%0A*Tanggal:*%20'+tanggal+'%0A*Jam:*%20'+jam+'%0A*Jumlah:*%20'+jumlah+'%0A*Catatan:*%20'+encodeURIComponent(catatan);
     window.open('https://wa.me/'+waNumber+'?text='+text,'_blank');
   });
   
-  // Set Minimum Date
+  // Min Date
   var today=new Date().toISOString().split('T')[0];
   document.getElementById('tanggal').setAttribute('min',today);
 
-  // Fullscreen Showcase Scroll Logic
+  // Parallax Scroll Showcase
   var showcaseSection = document.getElementById('showcase');
   var slides = document.querySelectorAll('.showcase-slide');
 
