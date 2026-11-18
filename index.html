@@ -55,6 +55,20 @@ h1,h2,h3{font-family:var(--s);font-weight:300;line-height:1.1}
 .about-stats{display:flex;gap:2.8rem;margin-top:2.6rem;padding-top:2rem;border-top:1px solid rgba(11,11,11,.12);flex-wrap:wrap}
 .stat b{display:block;font-family:var(--s);font-size:2.1rem;font-weight:400;line-height:1}
 .stat span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--m)}
+
+/* EXPERIENCE STACKING SCROLL */
+.experience{position:relative;padding:clamp(6rem,14vw,11rem) 0;color:#fff;text-align:center;overflow:hidden;background:var(--i)}
+.exp-bg{position:absolute;inset:0;z-index:0}
+.exp-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.4)}
+.exp-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(11,11,11,.6) 0%,rgba(11,11,11,.9) 100%)}
+.exp-container{position:relative;z-index:2}
+.exp-content{max-width:680px;margin-inline:auto;margin-bottom:5rem}
+.exp-content p{color:rgba(255,255,255,.72);font-size:.98rem;margin:1.4rem 0 2.8rem}
+.exp-stack{display:flex;flex-direction:column;gap:3rem;max-width:800px;margin-inline:auto}
+.exp-stack .reveal{transform:translateY(80px) scale(0.95);transition:all 1s cubic-bezier(0.2, 0.8, 0.2, 1);}
+.exp-stack .reveal.in{transform:translateY(0) scale(1);}
+.exp-stack img{width:100%;height:auto;border-radius:4px;box-shadow:0 30px 60px -15px rgba(0,0,0,0.8);}
+
 .menu{padding:clamp(5rem,11vw,9rem) 0;background:var(--c)}
 .menu-head{text-align:center;max-width:620px;margin:0 auto 3rem}
 .menu-head p{color:var(--m);font-size:.95rem;margin-top:1rem}
@@ -69,24 +83,6 @@ h1,h2,h3{font-family:var(--s);font-weight:300;line-height:1.1}
 .dish h3{font-size:1.45rem;margin-bottom:.55rem}
 .dish p{font-size:.84rem;color:var(--m);flex:1;line-height:1.65}
 .dish-price{margin-top:1.2rem;font-family:var(--s);font-size:1.15rem}
-
-.experience{position:relative;padding:clamp(6rem,14vw,11rem) 0;color:#fff;text-align:center;overflow:hidden}
-.exp-bg{position:absolute;inset:0;z-index:-2}
-.exp-bg img{width:100%;height:100%;object-fit:cover}
-.experience::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(11,11,11,.74)}
-.exp-content{max-width:680px;margin-inline:auto}
-.exp-content p{color:rgba(255,255,255,.72);font-size:.98rem;margin:1.4rem 0 2.8rem}
-
-/* FULLSCREEN SHOWCASE SCROLL */
-.showcase{position:relative;background:var(--i)}
-.showcase-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
-.showcase-slide{position:absolute;inset:0;opacity:0;transition:opacity .5s ease;display:flex;align-items:center;justify-content:center}
-.showcase-slide.active{opacity:1}
-.showcase-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(.6)}
-.showcase-caption{position:absolute;bottom:15vh;left:0;width:100%;text-align:center;color:#fff;transform:translateY(20px);transition:transform .5s ease}
-.showcase-slide.active .showcase-caption{transform:translateY(0)}
-.showcase-caption h3{font-family:var(--s);font-size:clamp(2rem,5vw,3.5rem);font-weight:300;margin-bottom:.5rem}
-.showcase-caption p{font-size:.9rem;letter-spacing:.1em;color:rgba(255,255,255,.7)}
 
 .testimonials{padding:5rem 0;background:var(--p);text-align:center}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:3rem;text-align:left}
@@ -170,39 +166,30 @@ h1,h2,h3{font-family:var(--s);font-weight:300;line-height:1.1}
   </div>
 </section>
 
+<!-- EXPERIENCE STACKING SCROLL -->
 <section class="experience" id="experience">
-  <div class="exp-bg"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80&auto=format&fit=crop" alt="Interior"></div>
-  <div class="wrap">
+  <div class="exp-bg">
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80&auto=format&fit=crop" alt="Interior ATELIER">
+  </div>
+  <div class="exp-overlay"></div>
+  
+  <div class="wrap exp-container">
     <div class="exp-content reveal">
       <span class="kicker">The Experience</span>
       <h2 class="section-title">Duduk. Tarik napas. Nikmati.</h2>
       <p>Dua belas kursi, satu dapur terbuka, dan cahaya temaram yang dibuat untuk percakapan panjang. Kami tidak mempercepat apa pun — termasuk malam Anda.</p>
       <a href="#contact" class="btn btn-ghost">Pesan Meja Anda</a>
     </div>
-  </div>
-</section>
 
-<section class="showcase" id="showcase">
-  <div class="showcase-sticky">
-    <div class="showcase-slide active">
-      <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600&q=80&auto=format&fit=crop" alt="Bar ATELIER" loading="lazy">
-      <div class="showcase-caption">
-        <h3>The Bar</h3>
-        <p>Koleksi minuman dan alkohol pilihan.</p>
+    <div class="exp-stack">
+      <div class="reveal">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&q=80&auto=format&fit=crop" alt="Bar ATELIER" loading="lazy">
       </div>
-    </div>
-    <div class="showcase-slide">
-      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=80&auto=format&fit=crop" alt="Meja ATELIER" loading="lazy">
-      <div class="showcase-caption">
-        <h3>The Dining Area</h3>
-        <p>Suasana temaram untuk percakapan panjang.</p>
+      <div class="reveal">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1000&q=80&auto=format&fit=crop" alt="Meja ATELIER" loading="lazy">
       </div>
-    </div>
-    <div class="showcase-slide">
-      <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1600&q=80&auto=format&fit=crop" alt="Plating" loading="lazy">
-      <div class="showcase-caption">
-        <h3>The Plating</h3>
-        <p>Setiap detail disusun dengan presisi.</p>
+      <div class="reveal">
+        <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1000&q=80&auto=format&fit=crop" alt="Plating" loading="lazy">
       </div>
     </div>
   </div>
@@ -312,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function(){
   burger.addEventListener('click',function(){var open=!navLinks.classList.contains('open');burger.classList.toggle('open',open);navLinks.classList.toggle('open',open);document.body.classList.toggle('locked',open);});
   navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
   
-  // Reveal
+  // Reveal Animation (Untuk semua, termasuk stack foto)
   var reveals=document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.1});
@@ -340,31 +327,6 @@ document.addEventListener('DOMContentLoaded', function(){
   // Min Date
   var today=new Date().toISOString().split('T')[0];
   document.getElementById('tanggal').setAttribute('min',today);
-
-  // Parallax Scroll Showcase
-  var showcaseSection = document.getElementById('showcase');
-  var slides = document.querySelectorAll('.showcase-slide');
-
-  if (showcaseSection) {
-    showcaseSection.style.height = (slides.length * 100) + 'vh';
-
-    window.addEventListener('scroll', function() {
-      var rect = showcaseSection.getBoundingClientRect();
-      var offset = -rect.top;
-      var totalHeight = showcaseSection.offsetHeight - window.innerHeight;
-      
-      if(totalHeight > 0) {
-        var progress = offset / totalHeight;
-        progress = Math.max(0, Math.min(1, progress));
-        var activeIndex = Math.floor(progress * slides.length);
-        if (activeIndex >= slides.length) activeIndex = slides.length - 1;
-
-        slides.forEach(function(slide, index) {
-          slide.classList.toggle('active', index === activeIndex);
-        });
-      }
-    });
-  }
 });
 </script>
 </body>
